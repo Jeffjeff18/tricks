@@ -81,9 +81,6 @@
     
         
     </style>
-    
-    
-    
 </head>
 <body>
     <div class="container">
@@ -91,80 +88,77 @@
             <h1>HELLO <3 </h1>
         </header>
         <div class="center-box" id="animationContainer">
-           
             <button onclick="startKaraoke()">Click Mo Dali! </button>
         </div>
     </div>
 
-   
+    <script>
+        let animationStarted = false;
 
-<script>
-    function startKaraoke() {
-    const animationContainer = document.getElementById('animationContainer');
-    const karaokeText = document.createElement('span');
-    karaokeText.classList.add('animate-text');
-    karaokeText.innerText = "Today is February 14, 2024";
+        function startKaraoke() {
+            if (!animationStarted) {
+                animationStarted = true;
 
-    let delay = 0;
+                const animationContainer = document.getElementById('animationContainer');
+                const karaokeText = document.createElement('span');
+                karaokeText.classList.add('animate-text');
+                karaokeText.innerText = "Today is February 14, 2024";
 
-    // Split the text into an array of words
-    const textArray = karaokeText.innerText.split(' ');
+                let delay = 0;
 
-    // Use a single loop to iterate over each word and create timeouts
-    textArray.forEach((word, index) => {
-        setTimeout(() => {
-            animationContainer.appendChild(document.createTextNode(word + ' '));
-            if (index === textArray.length - 1) {
-                karaokeText.classList.add('show-text'); // Add 'show-text' class after all words are displayed
-            }
-        }, delay);
-        delay += 500;
-    });
+                const textArray = karaokeText.innerText.split(' ');
 
-    // Add additional texts after the karaokeText is fully displayed
-    setTimeout(() => {
-        animationContainer.appendChild(document.createElement('br'));
-        const additionalText = "Happy Valentine's day ";
-        additionalText.split(' ').forEach((addWord, addIndex) => {
-            setTimeout(() => {
-                animationContainer.appendChild(document.createTextNode(addWord + ' '));
-            }, addIndex * 500);
-        });
-
-        setTimeout(() => {
-            animationContainer.appendChild(document.createElement('br'));
-            const extraText = "Sana Happy Ka Ngayong Araw <3";
-            extraText.split(' ').forEach((extraWord, extraIndex) => {
-                setTimeout(() => {
-                    animationContainer.appendChild(document.createTextNode(extraWord + ' '));
-                }, extraIndex * 500);
-            });
-
-            setTimeout(() => {
-                animationContainer.appendChild(document.createElement('br'));
-                const loveText = "Ingat Ka Palagi";
-                loveText.split(' ').forEach((loveWord, loveIndex) => {
+                textArray.forEach((word, index) => {
                     setTimeout(() => {
-                        animationContainer.appendChild(document.createTextNode(loveWord + ' '));
-                    }, loveIndex * 500);
+                        animationContainer.appendChild(document.createTextNode(word + ' '));
+                        if (index === textArray.length - 1) {
+                            karaokeText.classList.add('show-text');
+                        }
+                    }, delay);
+                    delay += 500;
                 });
 
                 setTimeout(() => {
                     animationContainer.appendChild(document.createElement('br'));
-                    const loveText2 = "🥰🥰🥰";
-                    loveText2.split(' ').forEach((love2Word, love2Index) => {
+                    const additionalText = "Happy Valentine's day ";
+                    additionalText.split(' ').forEach((addWord, addIndex) => {
                         setTimeout(() => {
-                            animationContainer.appendChild(document.createTextNode(love2Word + ' '));
-                        }, love2Index * 500);
+                            animationContainer.appendChild(document.createTextNode(addWord + ' '));
+                        }, addIndex * 500);
                     });
-                }, loveText.split(' ').length * 500);
-            }, extraText.split(' ').length * 500);
-        }, additionalText.split(' ').length * 500);
-    }, textArray.length * 500);
-}
 
+                    setTimeout(() => {
+                        animationContainer.appendChild(document.createElement('br'));
+                        const extraText = "Sana Happy Ka Ngayong Araw <3";
+                        extraText.split(' ').forEach((extraWord, extraIndex) => {
+                            setTimeout(() => {
+                                animationContainer.appendChild(document.createTextNode(extraWord + ' '));
+                            }, extraIndex * 500);
+                        });
 
+                        setTimeout(() => {
+                            animationContainer.appendChild(document.createElement('br'));
+                            const loveText = "Ingat Ka Palagi";
+                            loveText.split(' ').forEach((loveWord, loveIndex) => {
+                                setTimeout(() => {
+                                    animationContainer.appendChild(document.createTextNode(loveWord + ' '));
+                                }, loveIndex * 500);
+                            });
 
-
+                            setTimeout(() => {
+                                animationContainer.appendChild(document.createElement('br'));
+                                const loveText2 = "🥰🥰🥰";
+                                loveText2.split(' ').forEach((love2Word, love2Index) => {
+                                    setTimeout(() => {
+                                        animationContainer.appendChild(document.createTextNode(love2Word + ' '));
+                                    }, love2Index * 500);
+                                });
+                            }, loveText.split(' ').length * 500);
+                        }, extraText.split(' ').length * 500);
+                    }, additionalText.split(' ').length * 500);
+                }, textArray.length * 500);
+            }
+        }
+    </script>
 </body>
 </html>
