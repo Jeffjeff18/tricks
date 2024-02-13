@@ -114,74 +114,53 @@
     textArray.forEach((word, index) => {
         setTimeout(() => {
             animationContainer.appendChild(document.createTextNode(word + ' '));
-            karaokeText.classList.add('show-text');
-
-            // Add line break after the last word of the first text
             if (index === textArray.length - 1) {
-                animationContainer.appendChild(document.createElement('br'));
-                const additionalText = "Happy Valentine's day ";
-
-                // Split additional text into an array of words
-                const additionalTextArray = additionalText.split(' ');
-
-                // Iterate over each word in additional text and create timeouts
-                additionalTextArray.forEach((addWord, addIndex) => {
-                    setTimeout(() => {
-                        animationContainer.appendChild(document.createTextNode(addWord + ' '));
-                    }, addIndex * 500);
-                });
-
-                // Add line break after additional text
-                setTimeout(() => {
-                    animationContainer.appendChild(document.createElement('br'));
-                    const extraText = "Sana Happy Ka Ngayong Araw <3";
-
-                    // Split extra text into an array of words
-                    const extraTextArray = extraText.split(' ');
-
-                    // Iterate over each word in extra text and create timeouts
-                    extraTextArray.forEach((extraWord, extraIndex) => {
-                        setTimeout(() => {
-                            animationContainer.appendChild(document.createTextNode(extraWord + ' '));
-                        }, extraIndex * 500);
-                    });
-
-                    // Add line break after extra text
-                    setTimeout(() => {
-                        animationContainer.appendChild(document.createElement('br'));
-                        const loveText = "Ingat Ka Palagi";
-
-                        // Split love text into an array of words
-                        const loveTextArray = loveText.split(' ');
-
-                        // Iterate over each word in love text and create timeouts
-                        loveTextArray.forEach((loveWord, loveIndex) => {
-                            setTimeout(() => {
-                                animationContainer.appendChild(document.createTextNode(loveWord + ' '));
-                            }, loveIndex * 500);
-                        });
-
-                        // Add line break after love text
-                        setTimeout(() => {
-                            animationContainer.appendChild(document.createElement('br'));
-                            const loveText2 = "🥰🥰🥰";
-
-                            // Split the second love text into an array of words
-                            const loveText2Array = loveText2.split(' ');
-
-                            // Iterate over each word in the second love text and create timeouts
-                            loveText2Array.forEach((love2Word, love2Index) => {
-                                setTimeout(() => {
-                                    animationContainer.appendChild(document.createTextNode(love2Word + ' '));
-                                }, love2Index * 500);
-                            });
-                        }, loveTextArray.length * 500);
-                    }, delay);
-                }, delay);
+                karaokeText.classList.add('show-text'); // Add 'show-text' class after all words are displayed
             }
         }, delay);
         delay += 500;
     });
+
+    // Add additional texts after the karaokeText is fully displayed
+    setTimeout(() => {
+        animationContainer.appendChild(document.createElement('br'));
+        const additionalText = "Happy Valentine's day ";
+        additionalText.split(' ').forEach((addWord, addIndex) => {
+            setTimeout(() => {
+                animationContainer.appendChild(document.createTextNode(addWord + ' '));
+            }, addIndex * 500);
+        });
+
+        setTimeout(() => {
+            animationContainer.appendChild(document.createElement('br'));
+            const extraText = "Sana Happy Ka Ngayong Araw <3";
+            extraText.split(' ').forEach((extraWord, extraIndex) => {
+                setTimeout(() => {
+                    animationContainer.appendChild(document.createTextNode(extraWord + ' '));
+                }, extraIndex * 500);
+            });
+
+            setTimeout(() => {
+                animationContainer.appendChild(document.createElement('br'));
+                const loveText = "Ingat Ka Palagi";
+                loveText.split(' ').forEach((loveWord, loveIndex) => {
+                    setTimeout(() => {
+                        animationContainer.appendChild(document.createTextNode(loveWord + ' '));
+                    }, loveIndex * 500);
+                });
+
+                setTimeout(() => {
+                    animationContainer.appendChild(document.createElement('br'));
+                    const loveText2 = "🥰🥰🥰";
+                    loveText2.split(' ').forEach((love2Word, love2Index) => {
+                        setTimeout(() => {
+                            animationContainer.appendChild(document.createTextNode(love2Word + ' '));
+                        }, love2Index * 500);
+                    });
+                }, loveText.split(' ').length * 500);
+            }, extraText.split(' ').length * 500);
+        }, additionalText.split(' ').length * 500);
+    }, textArray.length * 500);
 }
 
 
