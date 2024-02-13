@@ -100,64 +100,90 @@
 
 <script>
     function startKaraoke() {
-        const animationContainer = document.getElementById('animationContainer');
-        const karaokeText = document.createElement('span');
-        karaokeText.classList.add('animate-text');
-        karaokeText.innerText = "Today is February 14 ,2024";
-        
-        let delay = 0;
+    const animationContainer = document.getElementById('animationContainer');
+    const karaokeText = document.createElement('span');
+    karaokeText.classList.add('animate-text');
+    karaokeText.innerText = "Today is February 14, 2024";
 
-        for (let i = 0; i < karaokeText.innerText.split(' ').length; i++) {
-            setTimeout(() => {
-                animationContainer.appendChild(document.createTextNode(karaokeText.innerText.split(' ')[i] + ' '));
-                karaokeText.classList.add('show-text');
-                if (i === karaokeText.innerText.split(' ').length - 1) {
-                    
+    let delay = 0;
+
+    // Split the text into an array of words
+    const textArray = karaokeText.innerText.split(' ');
+
+    // Use a single loop to iterate over each word and create timeouts
+    textArray.forEach((word, index) => {
+        setTimeout(() => {
+            animationContainer.appendChild(document.createTextNode(word + ' '));
+            karaokeText.classList.add('show-text');
+
+            // Add line break after the last word of the first text
+            if (index === textArray.length - 1) {
+                animationContainer.appendChild(document.createElement('br'));
+                const additionalText = "Happy Valentine's day ";
+
+                // Split additional text into an array of words
+                const additionalTextArray = additionalText.split(' ');
+
+                // Iterate over each word in additional text and create timeouts
+                additionalTextArray.forEach((addWord, addIndex) => {
+                    setTimeout(() => {
+                        animationContainer.appendChild(document.createTextNode(addWord + ' '));
+                    }, addIndex * 500);
+                });
+
+                // Add line break after additional text
+                setTimeout(() => {
+                    animationContainer.appendChild(document.createElement('br'));
+                    const extraText = "Sana Happy Ka Ngayong Araw <3";
+
+                    // Split extra text into an array of words
+                    const extraTextArray = extraText.split(' ');
+
+                    // Iterate over each word in extra text and create timeouts
+                    extraTextArray.forEach((extraWord, extraIndex) => {
+                        setTimeout(() => {
+                            animationContainer.appendChild(document.createTextNode(extraWord + ' '));
+                        }, extraIndex * 500);
+                    });
+
+                    // Add line break after extra text
                     setTimeout(() => {
                         animationContainer.appendChild(document.createElement('br'));
-                        const additionalText = "Happy Valentine's day ";
-                        for (let j = 0; j < additionalText.split(' ').length; j++) {
+                        const loveText = "Ingat Ka Palagi";
+
+                        // Split love text into an array of words
+                        const loveTextArray = loveText.split(' ');
+
+                        // Iterate over each word in love text and create timeouts
+                        loveTextArray.forEach((loveWord, loveIndex) => {
                             setTimeout(() => {
-                                animationContainer.appendChild(document.createTextNode(additionalText.split(' ')[j] + ' '));
-                            }, j * 500); 
-                        }
-                        
-                        
+                                animationContainer.appendChild(document.createTextNode(loveWord + ' '));
+                            }, loveIndex * 500);
+                        });
+
+                        // Add line break after love text
                         setTimeout(() => {
                             animationContainer.appendChild(document.createElement('br'));
-                            const extraText = "Sana Happy Ka Ngayong Araw <3";
-                            for (let k = 0; k < extraText.split(' ').length; k++) {
+                            const loveText2 = "🥰🥰🥰";
+
+                            // Split the second love text into an array of words
+                            const loveText2Array = loveText2.split(' ');
+
+                            // Iterate over each word in the second love text and create timeouts
+                            loveText2Array.forEach((love2Word, love2Index) => {
                                 setTimeout(() => {
-                                    animationContainer.appendChild(document.createTextNode(extraText.split(' ')[k] + ' '));
-                                }, k * 500); 
-                            }
-                           
-                            setTimeout(() => {
-                                animationContainer.appendChild(document.createElement('br'));
-                                const loveText = "Ingat Ka Palagi";
-                                for (let L = 0; L < loveText.split(' ').length; L++) {
-                                    setTimeout(() => {
-                                        animationContainer.appendChild(document.createTextNode(loveText.split(' ')[L] + ' '));
-                                    }, L * 500); 
-                                }
-                                setTimeout(() => {
-                                    animationContainer.appendChild(document.createElement('br'));
-                                    const loveText2 = "🥰🥰🥰";
-                                    for (let t = 0; t < loveText2.split(' ').length; t++) {
-                                        setTimeout(() => {
-                                            animationContainer.appendChild(document.createTextNode(loveText2.split(' ')[t] + ' '));
-                                        }, t * 500);
-                                    }
-                                }, loveText.split(' ').length * 500); 
-                            }, delay);
-                        }, delay);
+                                    animationContainer.appendChild(document.createTextNode(love2Word + ' '));
+                                }, love2Index * 500);
+                            });
+                        }, loveTextArray.length * 500);
                     }, delay);
-                }
-            }, delay);
-            delay += 500; 
-        }
-    }
-</script>
+                }, delay);
+            }
+        }, delay);
+        delay += 500;
+    });
+}
+
 
 
 
